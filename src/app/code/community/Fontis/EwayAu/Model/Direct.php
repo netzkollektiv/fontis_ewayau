@@ -403,7 +403,7 @@ class Fontis_EwayAu_Model_Direct extends Mage_Payment_Model_Method_Cc
         $xml->addChild('ewayCustomerAddress', str_replace('&', '&amp;', trim($formattedAddress)));
         $xml->addChild('ewayCustomerPostcode', str_replace('&', '&amp;', trim($billing->getPostcode())));
         $xml->addChild('ewayCustomerInvoiceDescription', str_replace('&', '&amp;', trim($invoiceDesc)));
-        $xml->addChild('ewayCustomerInvoiceRef', '');
+        $xml->addChild('ewayCustomerInvoiceRef', $order->getIncrementId());
         $xml->addChild('ewayCardHoldersName', str_replace('&', '&amp;', $payment->getCcOwner()));
         $xml->addChild('ewayCardNumber', $payment->getCcNumber());
         $xml->addChild('ewayCardExpiryMonth', $payment->getCcExpMonth());
